@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consulta la carta actualizada de L'Ermita Sumaq. Tapas calientes y frías, bocadillos clásicos y de la casa, deliciosas tostadas, postres caseros y una cuidada bodega de vinos.">
+    <meta name="keywords" content="carta restaurante Ibi, menú tapas Ibi, bocadillos de la casa, vinos y postres, cafetería Ibi">
+    <title>La Carta - L'Ermita Sumaq | Menú Completo e Interactivo</title>
+    <link rel="icon" type="image/png" href="assets/logos/logo_principal.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Specific Styles for Interactive Menu Page */
+        .page-hero {
+            background: linear-gradient(rgba(45, 36, 32, 0.7), rgba(45, 36, 32, 0.85)), url('assets/generated/tapas_spread.png') no-repeat center center/cover;
+            padding: 120px 0 60px 0;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .page-hero p {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Menu Interface */
+        .menu-interface {
+            padding: 60px 0 100px 0;
+        }
+
+        .menu-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+            gap: 24px;
+            border-bottom: 1px solid rgba(199, 161, 122, 0.15);
+            padding-bottom: 24px;
+        }
+
+        /* Tabs */
+        .menu-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background-color: transparent;
+            border: 1px solid rgba(92, 61, 46, 0.15);
+            color: var(--text-color);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--secondary-color);
+            background-color: rgba(199, 161, 122, 0.05);
+        }
+
+        .tab-btn.active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(92, 61, 46, 0.15);
+        }
+
+        /* Search Input */
+        .search-wrapper {
+            position: relative;
+            width: 320px;
+            max-width: 100%;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 40px 12px 16px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(92, 61, 46, 0.15);
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+            transition: var(--transition);
+            background-color: var(--white);
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(199, 161, 122, 0.15);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .clear-search-btn {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            color: var(--text-muted);
+            display: none;
+        }
+
+        .clear-search-btn.visible {
+            display: block;
+        }
+
+        .clear-search-btn:hover {
+            color: var(--primary-color);
+        }
+
+        /* Menu Grid / Sections */
+        .menu-subcat-section {
+            margin-bottom: 60px;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .menu-subcat-title {
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+            color: var(--primary-color);
+            border-bottom: 2px solid rgba(199, 161, 122, 0.2);
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+
+        .menu-items-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        /* Cards */
+        .menu-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(92, 61, 46, 0.05);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-color);
+        }
+
+        .menu-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .menu-item-name {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .menu-price {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            white-space: nowrap;
+        }
+
+        .menu-price-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .menu-price-group strong {
+            color: var(--secondary-color);
+            font-size: 1.05rem;
+        }
+
+        .menu-item-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Specialty Card styling */
+        .menu-card.specialty-card {
+            border: 1px solid var(--accent-color);
+            background-color: rgba(253, 251, 247, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-card.specialty-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--accent-color);
+        }
+
+        .specialty-badge {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* No Results / Search suggestions */
+        .no-results {
+            text-align: center;
+            padding: 80px 0;
+            color: var(--text-muted);
+            grid-column: span 2;
+        }
+
+        .no-results h3 {
+            margin-bottom: 8px;
+            font-size: 1.5rem;
+        }
+
+        /* Call To Action banner */
+        .menu-cta-banner {
+            background-color: #2D2420;
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .menu-cta-banner h2 {
+            color: var(--accent-color);
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+        }
+
+        .menu-cta-banner p {
+            max-width: 600px;
+            margin: 0 auto 32px auto;
+            color: #DFD7D3;
+        }
+
+        .menu-cta-banner .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            box-shadow: 0 4px 15px rgba(199, 161, 122, 0.2);
+        }
+
+        .menu-cta-banner .btn-primary:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 992px) {
+            .menu-items-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 2.4rem;
+            }
+            .menu-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .search-wrapper {
+                width: 100%;
+            }
+            .menu-tabs {
+                justify-content: center;
+            }
+            .tab-btn {
+                padding: 8px 18px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo-container">
+                <img src="assets/logos/logo_principal.png" alt="L'Ermita Sumaq Logo" class="logo-img">
+                <div class="logo-text">
+                    L'Ermita Sumaq
+                    <span class="logo-subtext">BAR FAMILIAR</span>
+                </div>
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href="carta.html" class="nav-link active">La Carta</a></li>
+                    <li class="nav-item"><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+                    <li class="nav-item"><a href="reservas.html" class="nav-link btn-nav">Reservar Mesa</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mini Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Nuestra Carta</h1>
+            <p>Descubre nuestra deliciosa variedad de platos, elaborados con productos frescos y recetas con mucha pasión.</p>
+        </div>
+    </section>
+
+    <!-- Menu Interface -->
+    <section class="menu-interface">
+        <div class="container">
+            <!-- Tabs & Search Controls -->
+            <div class="menu-controls">
+                <div class="menu-tabs">
+                    <button class="tab-btn active" data-category="tapas">Tapas y Raciones</button>
+                    <button class="tab-btn" data-category="bocadillos">Bocadillos y Tostadas</button>
+                    <button class="tab-btn" data-category="cafeteria">Café, Postres e Infusiones</button>
+                    <button class="tab-btn" data-category="vinos">Bodega de Vinos</button>
+                </div>
+                <div class="search-wrapper">
+                    <input type="text" id="menu-search" class="search-input" placeholder="Buscar plato (ej. jamón)...">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <button id="clear-search" class="clear-search-btn" aria-label="Limpiar búsqueda">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Menu Grid Target -->
+            <div id="menu-grid">
+                <!-- Javascript will inject categories and cards here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Reservation Banner -->
+    <section class="menu-cta-banner">
+        <div class="container">
+            <h2>¿Se te hace la boca agua?</h2>
+            <p>Reserva tu mesa en L'Ermita Sumaq y disfruta de un momento acogedor e inolvidable con familia o amigos.</p>
+            <a href="reservas.html" class="btn btn-primary">Reservar Mesa Online</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <span class="footer-logo-text">L'Ermita Sumaq</span>
+                    <p class="footer-logo-desc">Bar familiar y cafetería acogedora en Ibi. Una fusión entre la esencia tradicional española y la pasión por la calidad y el servicio.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/ermitasumaq_ibi/" target="_blank" class="social-icon" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3>Enlaces</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="carta.html">La Carta</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="reservas.html">Reservar Mesa</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Contacto</h3>
+                    <div class="footer-contact">
+                        <p><strong>Ubicación:</strong> Plaza La Foia 3, Ibi</p>
+                        <p><strong>Teléfono:</strong> <a href="tel:+34643260967">643 26 09 67</a></p>
+                        <p><strong>Email:</strong> <a href="mailto:ermitasumaqibi@gmail.com">ermitasumaqibi@gmail.com</a></p>
+                    </div>
+                </div>
+                <div>
+                    <h3>Horarios</h3>
+                    <div class="footer-schedule">
+                        <p><strong>Mar - Jue:</strong> 07:00 - 16:00 y 18:00 - 23:00</p>
+                        <p><strong>Vie - Sáb:</strong> 07:00 - 24:00 (Ininterrumpido)</p>
+                        <p><strong>Domingo:</strong> 07:00 - 16:00</p>
+                        <p><strong>Lunes:</strong> Cerrado por descanso</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 L'Ermita Sumaq. Todos los derechos reservados.</p>
+                <div class="footer-bottom-links">
+                    <a href="assets/pdf/CARTA BAR ERMITA.pdf" target="_blank">PDF Carta Bar</a>
+                    <a href="assets/pdf/Vinos y postres carta.pdf" target="_blank">PDF Vinos y Postres</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>
