@@ -1,0 +1,20 @@
+{
+  "name": "L'Ermita Sumaq - Bar Familiar y Cafetería",
+  "short_name": "L'Ermita Sumaq",
+  "icons": [
+    {
+      "src": "assets/logos/logo_principal.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/logos/logo_principal.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDFBF7",
+  "theme_color": "#5C3D2E"
+}
