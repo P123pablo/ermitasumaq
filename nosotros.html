@@ -42,6 +42,7 @@
     <title>Nosotros | L'Ermita Sumaq - Nuestra Historia y Galería de Fotos</title>
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://awards.infcdn.net/2026_new/badge-circledLeaves27.css">
     <style>
         /* Specific Styles for About Us and Gallery Page */
         .about-hero {
@@ -104,6 +105,45 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        .story-visuals {
+            display: grid;
+            gap: 24px;
+            min-width: 0;
+        }
+
+        .story-visuals .story-image-collage {
+            height: 340px;
+        }
+
+        .story-recognition {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 20px 24px;
+            background: var(--light-bg);
+            border: 1px solid rgba(199, 161, 122, 0.3);
+            border-radius: var(--border-radius);
+        }
+
+        .story-recognition #rg26-b-circledLeaves27 {
+            flex: 0 0 186px;
+            margin: 0;
+        }
+
+        .recognition-copy h3 {
+            color: var(--primary-color);
+            font-size: 1.35rem;
+            line-height: 1.35;
+            margin-bottom: 10px;
+        }
+
+        .recognition-copy p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin: 0;
         }
 
         /* Gallery Grid */
@@ -306,6 +346,21 @@
         }
 
         @media (max-width: 576px) {
+            .story-recognition {
+                flex-direction: column;
+                gap: 12px;
+                padding: 20px 24px 28px;
+                text-align: center;
+            }
+            .story-recognition #rg26-b-circledLeaves27 {
+                flex-basis: auto;
+            }
+            .recognition-copy {
+                max-width: 30ch;
+            }
+            .story-visuals .story-image-collage {
+                height: 280px;
+            }
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
@@ -367,8 +422,25 @@
                     <p>L'Ermita Sumaq nació con el deseo de ofrecer un punto de encuentro familiar en Ibi. Al ubicarnos en la animada Plaza de la Foia, sabíamos que queríamos ser un espacio acogedor para todas las generaciones, especialmente para familias con niños que buscan disfrutar de una buena comida mientras los más pequeños juegan en el parque infantil situado justo al lado de nuestra terraza.</p>
                     <p>Nuestra propuesta gastronómica gira en torno a materias primas seleccionadas con mimo. Elaboramos las tapas clásicas de toda la vida y bocadillos de receta tradicional enriqueciéndolos con el espíritu <strong>Sumaq</strong>, que en quechua significa <em>delicioso, excelente y hermoso</em>. Esto representa la dedicación y el esmero que ponemos en cada detalle de nuestro servicio.</p>
                 </div>
-                <div class="story-image-collage">
-                    <img src="assets/photos/local/salon.webp" alt="Salón de L'Ermita Sumaq" width="1536" height="1024" decoding="async" loading="eager" fetchpriority="high" srcset="assets/photos/local/salon-480.webp 480w, assets/photos/local/salon-960.webp 960w, assets/photos/local/salon-1440.webp 1440w, assets/photos/local/salon.webp 1536w" sizes="(max-width: 992px) calc(100vw - 48px), 570px">
+                <div class="story-visuals">
+                    <div class="story-image-collage">
+                        <img src="assets/photos/local/salon.webp" alt="Salón de L'Ermita Sumaq" width="1536" height="1024" decoding="async" loading="eager" fetchpriority="high" srcset="assets/photos/local/salon-480.webp 480w, assets/photos/local/salon-960.webp 960w, assets/photos/local/salon-1440.webp 1440w, assets/photos/local/salon.webp 1536w" sizes="(max-width: 992px) calc(100vw - 48px), 570px">
+                    </div>
+                    <div class="story-recognition">
+                        <a id="rg26-b-circledLeaves27"
+                           href="https://es.restaurantguru.com/L-Ermita-D-Oria-Ibi"
+                           target="_blank" rel="noopener noreferrer"
+                           aria-label="L'Ermita Sumaq, recomendado por Restaurant Guru (se abre en otra pestaña)"
+                           class="rg26-b-circledLeaves27--light rg26-b-circledLeaves27--2025">
+                            <span class="rg26-b-circledLeaves27__title">Recomendado</span>
+                            <span class="rg26-b-circledLeaves27__separator"></span>
+                            <span class="rg26-b-circledLeaves27__name">L'Ermita Sumaq</span>
+                        </a>
+                        <div class="recognition-copy">
+                            <h3>Recomendados por Restaurant Guru</h3>
+                            <p>Un reconocimiento a nuestra cocina, al trato cercano y al ambiente acogedor que compartimos contigo.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
