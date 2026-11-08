@@ -5,8 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Descubre L'Ermita Sumaq en Ibi. Un acogedor bar familiar y cafetería donde disfrutarás de deliciosas tapas, bocadillos gourmet, vinos y postres en un ambiente único. Reservas de mesa online.">
     <meta name="keywords" content="bar familiar Ibi, tapas Ibi, bocadillos gourmet, cafetería Plaza La Foia, L'Ermita Sumaq, reservas restaurante Ibi">
+    <link rel="canonical" href="https://ermitasumaq.com/">
+    <meta name="theme-color" content="#5C3D2E">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="L'Ermita Sumaq">
+    <meta property="og:title" content="L'Ermita Sumaq | Bar familiar y cafetería en Ibi">
+    <meta property="og:description" content="Tapas, bocadillos, vinos y postres en Plaza La Foia, Ibi. Contacto y reservas por teléfono o WhatsApp.">
+    <meta property="og:url" content="https://ermitasumaq.com/">
+    <meta property="og:image" content="https://ermitasumaq.com/assets/generated/hero_bg.png">
+    <meta property="og:image:alt" content="Ambiente de L'Ermita Sumaq">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="L'Ermita Sumaq | Bar familiar y cafetería en Ibi">
+    <meta name="twitter:description" content="Consulta la carta, ubicación y contacto para reservar en Ibi.">
+    <meta name="twitter:image" content="https://ermitasumaq.com/assets/generated/hero_bg.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="assets/logos/apple-touch-icon.png">
+    <link rel="preload" as="image" href="assets/generated/hero_bg.webp" media="(min-width: 769px)" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/generated/hero_bg-1440.webp" media="(max-width: 768px)" fetchpriority="high">
     <title>Inicio - L'Ermita Sumaq | Bar Familiar y Cafetería en Ibi</title>
-    <link rel="icon" type="image/png" href="assets/logos/logo_principal.png">
+    <link rel="icon" type="image/png" href="assets/logos/favicon-32.png">
+    <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/styles.css">
     <style>
         /* Specific Styles for Home Page */
@@ -14,12 +34,23 @@
             position: relative;
             height: 100vh;
             min-height: 600px;
-            background: linear-gradient(rgba(45, 36, 32, 0.55), rgba(45, 36, 32, 0.7)), url('assets/generated/hero_bg.png') no-repeat center center/cover;
+            isolation: isolate;
             display: flex;
             align-items: center;
             color: var(--white);
             text-align: center;
             padding-top: 80px;
+        }
+
+        /* Center the sign in the photo (at 53% of its width), not the photo's midpoint.
+           The slight overscan keeps both edges covered at every aspect ratio. */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0 0 0 -6.4%;
+            z-index: -1;
+            background: linear-gradient(rgba(45, 36, 32, 0.55), rgba(45, 36, 32, 0.7)), url('assets/generated/hero_bg.webp') no-repeat 53% top/cover;
+            pointer-events: none;
         }
 
         .hero-content {
@@ -197,7 +228,7 @@
             right: 0;
             width: 50%;
             height: 100%;
-            background: linear-gradient(90deg, var(--primary-color) 20%, transparent), url('assets/photos/salon.png') no-repeat center center/cover;
+            background: linear-gradient(90deg, var(--primary-color) 20%, transparent), url('assets/photos/local/salon.webp') no-repeat center center/cover;
             opacity: 0.25;
         }
 
@@ -291,7 +322,7 @@
             flex-shrink: 0;
         }
 
-        .contact-details h4 {
+        .contact-details h3 {
             font-size: 1.1rem;
             margin-bottom: 4px;
             color: var(--primary-color);
@@ -343,29 +374,57 @@
                 height: 300px;
             }
         }
+        @media (max-width: 768px) {
+            .hero::before { background-image: linear-gradient(rgba(45, 36, 32, .55), rgba(45, 36, 32, .7)), url('assets/generated/hero_bg-1440.webp'); }
+        }
     </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": "https://ermitasumaq.com/#restaurant",
+  "name": "L'Ermita Sumaq",
+  "url": "https://ermitasumaq.com/",
+  "image": "https://ermitasumaq.com/assets/generated/hero_bg.png",
+  "telephone": "+34643260967",
+  "email": "ermitasumaqibi@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Plaza La Foia, 3",
+    "addressLocality": "Ibi",
+    "addressRegion": "Alicante",
+    "postalCode": "03440",
+    "addressCountry": "ES"
+  },
+  "hasMenu": "https://ermitasumaq.com/carta",
+  "sameAs": [
+    "https://www.instagram.com/ermitasumaq_ibi/"
+  ]
+}
+    </script>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
 
     <!-- Header / Navigation -->
     <header>
         <div class="container">
             <a href="index.html" class="logo-container">
-                <img src="assets/logos/logo_principal.png" alt="L'Ermita Sumaq Logo" class="logo-img">
+                <img src="assets/logos/logo-192.webp" alt="L'Ermita Sumaq Logo" class="logo-img" width="192" height="192" decoding="async">
                 <div class="logo-text">
                     L'Ermita Sumaq
                     <span class="logo-subtext">BAR FAMILIAR</span>
                 </div>
             </a>
-            <nav>
-                <ul class="nav-menu">
-                    <li class="nav-item"><a href="index.html" class="nav-link active">Inicio</a></li>
+            <nav aria-label="Navegación principal">
+                <ul class="nav-menu" id="primary-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link active" aria-current="page">Inicio</a></li>
                     <li class="nav-item"><a href="carta.html" class="nav-link">La Carta</a></li>
                     <li class="nav-item"><a href="nosotros.html" class="nav-link">Nosotros</a></li>
                     <li class="nav-item"><a href="reservas.html" class="nav-link btn-nav">Reservar Mesa</a></li>
                 </ul>
             </nav>
-            <button class="hamburger">
+            <button class="hamburger" type="button" aria-label="Abrir menú" aria-controls="primary-menu" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -373,10 +432,12 @@
         </div>
     </header>
 
+    <main id="main-content" tabindex="-1">
+
     <!-- Hero Section -->
     <section class="hero fade-in">
         <div class="container hero-content">
-            <img src="assets/logos/logo_principal.png" alt="L'Ermita Sumaq Logo" class="hero-logo-peru">
+            <img src="assets/logos/logo-512.webp" alt="L'Ermita Sumaq Logo" class="hero-logo-peru" width="512" height="512" decoding="async">
             <h1 class="fade-in-up delay-1">Tradición y Sabores en Ibi</h1>
             <p class="fade-in-up delay-2">Un espacio acogedor donde las tapas tradicionales de toda la vida y los bocadillos gourmet se encuentran con el espíritu cálido y familiar de L'Ermita Sumaq.</p>
             <div class="hero-buttons fade-in-up delay-3">
@@ -390,9 +451,10 @@
     <section class="status-section">
         <div class="container">
             <div class="status-container">
-                <span id="open-status" class="status-badge">Calculando...</span>
-                <p id="status-details">Comprobando horario de apertura...</p>
+                <span id="open-status" class="status-badge">Horario habitual</span>
+                <p id="status-details" role="status">Consulta el horario habitual al pie de página.</p>
             </div>
+            <p class="hours-note">Horario habitual de Ibi. Confirma por teléfono la apertura en festivos.</p>
         </div>
     </section>
 
@@ -403,19 +465,19 @@
                 <h2 class="section-title">Lo que Ofrecemos</h2>
                 <p class="section-subtitle">Cocina con amor, ingredientes frescos de cercanía y un servicio cercano para que te sientas como en casa.</p>
             </div>
-            
+
             <div class="features-grid">
                 <!-- Feature 1 -->
                 <div class="feature-card">
                     <div class="feature-img-container">
-                        <img src="assets/generated/tapas_spread.png" alt="Tapas L'Ermita Sumaq" class="feature-img">
+                        <img src="assets/generated/tapas_spread.webp" alt="Tapas L'Ermita Sumaq" class="feature-img" width="1024" height="1024" decoding="async" loading="lazy" srcset="assets/generated/tapas_spread-480.webp 480w, assets/generated/tapas_spread-960.webp 960w, assets/generated/tapas_spread.webp 1024w" sizes="(max-width: 576px) calc(100vw - 48px), (max-width: 992px) calc((100vw - 72px) / 2), 380px">
                     </div>
                     <div class="feature-content">
                         <h3>Nuestras Tapas</h3>
                         <p>Desde unas patatas bravas crujientes y albóndigas caseras hasta delicias como la carrillada al vino tinto o crujientes tequeños.</p>
                         <a href="carta.html?cat=tapas" class="feature-link">
                             Explorar Tapas
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                         </a>
                     </div>
                 </div>
@@ -423,14 +485,14 @@
                 <!-- Feature 2 -->
                 <div class="feature-card">
                     <div class="feature-img-container">
-                        <img src="assets/generated/gourmet_sandwich.png" alt="Bocadillos L'Ermita Sumaq" class="feature-img">
+                        <img src="assets/generated/gourmet_sandwich.webp" alt="Bocadillos L'Ermita Sumaq" class="feature-img" width="1448" height="1086" decoding="async" loading="lazy" srcset="assets/generated/gourmet_sandwich-480.webp 480w, assets/generated/gourmet_sandwich-960.webp 960w, assets/generated/gourmet_sandwich-1440.webp 1440w, assets/generated/gourmet_sandwich.webp 1448w" sizes="(max-width: 576px) calc(100vw - 48px), (max-width: 992px) calc((100vw - 72px) / 2), 380px">
                     </div>
                     <div class="feature-content">
                         <h3>Bocadillos de la Casa</h3>
                         <p>Bocadillos XXL y especialidades únicas de la casa elaborados con pan rústico recién horneado y combinaciones irresistibles de ingredientes.</p>
                         <a href="carta.html?cat=bocadillos" class="feature-link">
                             Ver Bocadillos
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                         </a>
                     </div>
                 </div>
@@ -438,14 +500,14 @@
                 <!-- Feature 3 -->
                 <div class="feature-card">
                     <div class="feature-img-container">
-                        <img src="assets/generated/wine_selection.png" alt="Bebidas y Vinos L'Ermita Sumaq" class="feature-img">
+                        <img src="assets/generated/wine_selection.webp" alt="Bebidas y Vinos L'Ermita Sumaq" class="feature-img" width="1448" height="1086" decoding="async" loading="lazy" srcset="assets/generated/wine_selection-480.webp 480w, assets/generated/wine_selection-960.webp 960w, assets/generated/wine_selection-1440.webp 1440w, assets/generated/wine_selection.webp 1448w" sizes="(max-width: 576px) calc(100vw - 48px), (max-width: 992px) calc((100vw - 72px) / 2), 380px">
                     </div>
                     <div class="feature-content">
                         <h3>Vinos, Cafés y Postres</h3>
                         <p>Acompaña tu comida con una cuidada selección de tintos y blancos españoles. Finaliza con nuestros postres caseros y aromáticos cafés.</p>
-                        <a href="carta.html?cat=postres" class="feature-link">
+                        <a href="carta.html?cat=cafeteria" class="feature-link">
                             Ver Bebidas e Infusiones
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                         </a>
                     </div>
                 </div>
@@ -464,9 +526,9 @@
                     <a href="nosotros.html" class="btn btn-secondary" style="margin-top: 15px; color: var(--white); border-color: var(--white);">Nuestra Historia</a>
                 </div>
                 <div class="fusion-logos">
-                    <img src="assets/logos/logo_principal.png" alt="L'Ermita Sumaq Logo" class="fusion-logo-img-large">
+                    <img src="assets/logos/logo-512.webp" alt="L'Ermita Sumaq Logo" class="fusion-logo-img-large" width="512" height="512" decoding="async">
                     <!-- Peru Flag SVG -->
-                    <svg class="peru-flag" width="200" height="134" viewBox="0 0 3 2" style="border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); flex-shrink: 0;">
+                    <svg aria-hidden="true" focusable="false" class="peru-flag" width="200" height="134" viewBox="0 0 3 2" style="border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); flex-shrink: 0;">
                         <rect width="1" height="2" fill="#D91429" />
                         <rect x="1" width="1" height="2" fill="#FFF" />
                         <rect x="2" width="1" height="2" fill="#D91429" />
@@ -483,15 +545,15 @@
                 <div class="contact-info">
                     <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Encuéntranos</h2>
                     <p style="color: var(--text-muted); font-size: 1.05rem;">¿Tienes alguna consulta o prefieres reservar por teléfono? Ponte en contacto con nosotros o visítanos directamente en Plaza La Foia.</p>
-                    
+
                     <div class="contact-info-list">
                         <!-- Address -->
                         <div class="contact-info-item">
                             <div class="contact-icon-wrapper">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                             </div>
                             <div class="contact-details">
-                                <h4>Dirección</h4>
+                                <h3>Dirección</h3>
                                 <p>Plaza La Foia, 3, 03440 Ibi, Alicante, España</p>
                             </div>
                         </div>
@@ -499,21 +561,21 @@
                         <!-- Phone -->
                         <div class="contact-info-item">
                             <div class="contact-icon-wrapper">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                             </div>
                             <div class="contact-details">
-                                <h4>Teléfonos</h4>
-                                <p><a href="tel:+34643260967">643 26 09 67</a> &nbsp;|&nbsp; <a href="tel:+34966330052">966 33 00 52</a></p>
+                                <h3>Teléfonos</h3>
+                                <p><a href="tel:+34643260967">643&nbsp;26&nbsp;09&nbsp;67</a> &nbsp;|&nbsp; <a href="tel:+34966330052">966&nbsp;33&nbsp;00&nbsp;52</a></p>
                             </div>
                         </div>
 
                         <!-- Email -->
                         <div class="contact-info-item">
                             <div class="contact-icon-wrapper">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                             </div>
                             <div class="contact-details">
-                                <h4>Correo Electrónico</h4>
+                                <h3>Correo Electrónico</h3>
                                 <p><a href="mailto:ermitasumaqibi@gmail.com">ermitasumaqibi@gmail.com</a></p>
                             </div>
                         </div>
@@ -522,11 +584,13 @@
 
                 <!-- Google Maps Iframe -->
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3119.5398242099307!2d-0.573905023471018!3d38.624976762696614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6186fb5d804245%3A0xe54d7ea1e3458bfb!2sPlaza%20la%20Foia%2C%203%2C%2003440%20Ibi%2C%20Alicante!5e0!3m2!1ses!2ses!4v1717961234567!5m2!1ses!2ses" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe title="Ubicación de L’Ermita Sumaq en Plaza La Foia, Ibi" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3119.5398242099307!2d-0.573905023471018!3d38.624976762696614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6186fb5d804245%3A0xe54d7ea1e3458bfb!2sPlaza%20la%20Foia%2C%203%2C%2003440%20Ibi%2C%20Alicante!5e0!3m2!1ses!2ses!4v1717961234567!5m2!1ses!2ses" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                 </div>
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -536,8 +600,8 @@
                     <span class="footer-logo-text">L'Ermita Sumaq</span>
                     <p class="footer-logo-desc">Bar familiar y cafetería acogedora en Ibi. Una fusión entre la esencia tradicional española y la pasión por la calidad y el servicio.</p>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/ermitasumaq_ibi/" target="_blank" class="social-icon" aria-label="Instagram">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        <a href="https://www.instagram.com/ermitasumaq_ibi/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                            <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         </a>
                     </div>
                 </div>
@@ -554,7 +618,7 @@
                     <h3>Contacto</h3>
                     <div class="footer-contact">
                         <p><strong>Ubicación:</strong> Plaza La Foia 3, Ibi</p>
-                        <p><strong>Teléfono:</strong> <a href="tel:+34643260967">643 26 09 67</a></p>
+                        <p><strong>Teléfono:</strong> <a href="tel:+34643260967">643&nbsp;26&nbsp;09&nbsp;67</a></p>
                         <p><strong>Email:</strong> <a href="mailto:ermitasumaqibi@gmail.com">ermitasumaqibi@gmail.com</a></p>
                     </div>
                 </div>
@@ -571,8 +635,8 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 L'Ermita Sumaq. Todos los derechos reservados.</p>
                 <div class="footer-bottom-links">
-                    <a href="assets/pdf/CARTA BAR ERMITA.pdf" target="_blank">PDF Carta Bar</a>
-                    <a href="assets/pdf/Vinos y postres carta.pdf" target="_blank">PDF Vinos y Postres</a>
+                    <a href="assets/pdf/CARTA BAR ERMITA.pdf" target="_blank" rel="noopener noreferrer">PDF Carta Bar</a>
+                    <a href="assets/pdf/Vinos y postres carta.pdf" target="_blank" rel="noopener noreferrer">PDF Vinos y Postres</a>
                 </div>
             </div>
         </div>

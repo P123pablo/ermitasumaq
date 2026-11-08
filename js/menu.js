@@ -132,42 +132,44 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabButtons = document.querySelectorAll('.tab-btn');
     const searchInput = document.getElementById('menu-search');
     const clearSearchBtn = document.getElementById('clear-search');
-    
-    // Parse query parameter for initial category (e.g. ?cat=tapas)
-    const urlParams = new URLSearchParams(window.location.search);
-    const catParam = urlParams.get('cat');
-    let currentCategory = catParam || 'tapas';
 
-    // Set active class on corresponding tab button
-    tabButtons.forEach(btn => {
-        if (btn.dataset.category === currentCategory) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
+    if (!menuGrid || !searchInput || !clearSearchBtn) return;
+    const categories = new Set(Array.from(tabButtons, button => button.dataset.category));
+    const categoryFromUrl = () => {
+        const category = new URLSearchParams(window.location.search).get('cat');
+        if (category === 'postres') return 'cafeteria'; // Preserve old shared links.
+        return categories.has(category) ? category : 'tapas';
+    };
+    let currentCategory = categoryFromUrl();
+    const syncButtons = () => tabButtons.forEach(button => {
+        const selected = button.dataset.category === currentCategory;
+        button.classList.toggle('active', selected);
+        button.setAttribute('aria-pressed', String(selected));
     });
+    // Local data only today; escape before templating if a future source changes.
+    const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    })[char]);
+    const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
 
     const renderMenu = (category, searchQuery = '') => {
         if (!menuGrid) return;
         menuGrid.innerHTML = '';
-        
+
         let filtered = menuData.filter(item => item.category === category);
-        
+
         if (searchQuery.trim() !== '') {
-            const query = searchQuery.toLowerCase().trim();
-            // In search mode, we search across ALL items or just the active tab?
-            // User experience: search across ALL categories, but show which category it is,
-            // or search within the current active category. Let's search within the current tab first,
-            // but if they type we can search globally and highlight or filter.
-            // Let's filter within current category for clarity, but if no results, suggest looking globally.
+            const query = normalize(searchQuery);
             filtered = menuData.filter(item => {
-                const matchesSearch = item.name.toLowerCase().includes(query) || 
-                                     item.desc.toLowerCase().includes(query) ||
-                                     (item.subcategory && item.subcategory.toLowerCase().includes(query));
+                const matchesSearch = normalize(item.name).includes(query) ||
+                                     normalize(item.desc).includes(query) ||
+                                     (item.subcategory && normalize(item.subcategory).includes(query));
                 return matchesSearch && item.category === category;
             });
         }
 
+        const resultStatus = document.getElementById('menu-results');
+        if (resultStatus) resultStatus.textContent = `${filtered.length} platos en ${document.querySelector('.tab-btn.active').textContent}.`;
         if (filtered.length === 0) {
             menuGrid.innerHTML = `
                 <div class="no-results">
@@ -181,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Group by subcategory to display elegant headers within the category
         const subcategories = [...new Set(filtered.map(item => item.subcategory))];
-        
+
         // Define clean titles for subcategories
         const subcatTitles = {
             calientes: "Tapas Calientes",
@@ -203,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Create Subcategory Section
             const section = document.createElement('div');
             section.className = 'menu-subcat-section';
-            
+
             const title = document.createElement('h3');
             title.className = 'menu-subcat-title';
             title.textContent = subcatTitles[subcat] || subcat.toUpperCase();
@@ -215,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subcatItems.forEach(item => {
                 const card = document.createElement('div');
                 card.className = 'menu-card';
-                
+
                 // Format price: check if it has a bottle price
                 let priceHtml = `<span class="menu-price">${item.price.toFixed(2)}€</span>`;
                 if (item.bottlePrice) {
@@ -236,12 +238,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.innerHTML = `
                     <div class="menu-card-header">
                         <h4 class="menu-item-name">
-                            ${item.name}
+                            ${escapeHtml(item.name)}
                             ${isHouseSpecialty ? '<span class="specialty-badge">★ Especialidad</span>' : ''}
                         </h4>
                         ${priceHtml}
                     </div>
-                    <p class="menu-item-desc">${item.desc}</p>
+                    <p class="menu-item-desc">${escapeHtml(item.desc)}</p>
                 `;
                 grid.appendChild(card);
             });
@@ -254,14 +256,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event listener for Tabs
     tabButtons.forEach(button => {
         button.addEventListener('click', () => {
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
             currentCategory = button.dataset.category;
+            syncButtons();
             renderMenu(currentCategory, searchInput.value);
-            
+
             // Update URL without reloading page
-            const newUrl = `${window.location.pathname}?cat=${currentCategory}`;
-            window.history.pushState({ path: newUrl }, '', newUrl);
+            const newUrl = new URL(window.location.href);
+            if (window.location.protocol !== 'file:' && newUrl.searchParams.get('cat') !== currentCategory) {
+                newUrl.searchParams.set('cat', currentCategory);
+                window.history.pushState(null, '', newUrl);
+            }
         });
     });
 
@@ -288,6 +292,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Initial render
+    window.addEventListener('popstate', () => {
+        currentCategory = categoryFromUrl();
+        syncButtons();
+        renderMenu(currentCategory, searchInput.value);
+    });
+    syncButtons();
     renderMenu(currentCategory);
 });

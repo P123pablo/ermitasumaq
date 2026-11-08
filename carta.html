@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#5C3D2E">
     <meta name="description" content="Consulta la carta completa y precios actualizados de L'Ermita Sumaq en Ibi. Tapas calientes y frías, bocadillos de la casa, tostadas, cafetería, postres caseros y carta de vinos.">
     <meta name="keywords" content="carta L'Ermita Sumaq, precios bar Ibi, tapas calientes Ibi, bocadillos especiales Ibi, carta de vinos Ibi, postres caseros Ibi">
-    <link rel="canonical" href="https://ermitasumaq.com/carta.html">
+    <link rel="canonical" href="https://ermitasumaq.com/carta">
 
     <!-- Geo / Local SEO -->
     <meta name="geo.region" content="ES-A">
@@ -22,28 +22,31 @@
     <meta property="og:site_name" content="L'Ermita Sumaq">
     <meta property="og:title" content="La Carta | L'Ermita Sumaq - Tapas, Bocadillos, Vinos y Postres en Ibi">
     <meta property="og:description" content="Descubre nuestra selección de tapas caseras, bocadillos rústicos, vinos y postres con precios actualizados.">
-    <meta property="og:url" content="https://ermitasumaq.com/carta.html">
-    <meta property="og:image" content="https://ermitasumaq.com/assets/generated/tapas_spread.png">
+    <meta property="og:url" content="https://ermitasumaq.com/carta">
+    <meta property="og:image" content="https://ermitasumaq.com/assets/generated/tapas_spread.jpg">
     <meta property="og:image:alt" content="Carta de Tapas L'Ermita Sumaq">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="La Carta | L'Ermita Sumaq - Tapas, Bocadillos, Vinos y Postres en Ibi">
     <meta name="twitter:description" content="Tapas caseras, bocadillos especiales, vinos D.O. y postres en Ibi.">
-    <meta name="twitter:image" content="https://ermitasumaq.com/assets/generated/tapas_spread.png">
+    <meta name="twitter:image" content="https://ermitasumaq.com/assets/generated/tapas_spread.jpg">
 
     <!-- Favicons & Manifest -->
-    <link rel="icon" type="image/png" href="assets/logos/logo_principal.png">
-    <link rel="apple-touch-icon" href="assets/logos/logo_principal.png">
+    <link rel="icon" type="image/png" href="assets/logos/favicon-32.png">
+    <link rel="apple-touch-icon" href="assets/logos/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
 
+    <link rel="preload" as="image" href="assets/generated/tapas_spread.webp" media="(min-width: 769px)" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/generated/tapas_spread-960.webp" media="(max-width: 768px)" fetchpriority="high">
     <title>La Carta | L'Ermita Sumaq - Tapas, Bocadillos, Vinos y Postres en Ibi</title>
+    <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/styles.css">
 
     <style>
         /* Specific Styles for Menu / Carta Page */
         .menu-hero {
-            background: linear-gradient(rgba(45, 36, 32, 0.7), rgba(45, 36, 32, 0.85)), url('assets/generated/tapas_spread.png') no-repeat center center/cover;
+            background: linear-gradient(rgba(45, 36, 32, 0.7), rgba(45, 36, 32, 0.85)), url('assets/generated/tapas_spread.webp') no-repeat center center/cover;
             padding: 120px 0 60px 0;
             color: var(--white);
             text-align: center;
@@ -311,6 +314,9 @@
                 font-size: 2.2rem;
             }
         }
+        @media (max-width: 768px) {
+            .menu-hero { background-image: linear-gradient(rgba(45, 36, 32, .7), rgba(45, 36, 32, .85)), url('assets/generated/tapas_spread-960.webp'); }
+        }
     </style>
 
     <!-- Structured Data Schema.org Menu -->
@@ -319,8 +325,8 @@
       "@context": "https://schema.org",
       "@type": "Menu",
       "name": "Carta de L'Ermita Sumaq",
-      "url": "https://ermitasumaq.com/carta.html",
-      "mainEntityOfPage": "https://ermitasumaq.com/carta.html",
+      "url": "https://ermitasumaq.com/carta",
+      "mainEntityOfPage": "https://ermitasumaq.com/carta",
       "inLanguage": "es",
       "offers": {
         "@type": "AggregateOffer",
@@ -332,32 +338,35 @@
     </script>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
 
     <!-- Header / Navigation -->
     <header>
         <div class="container">
             <a href="index.html" class="logo-container">
-                <img src="assets/logos/logo_principal.png" alt="L'Ermita Sumaq Logo" class="logo-img">
+                <img src="assets/logos/logo-192.webp" alt="L'Ermita Sumaq Logo" class="logo-img" width="192" height="192" decoding="async">
                 <div class="logo-text">
                     L'Ermita Sumaq
                     <span class="logo-subtext">BAR FAMILIAR</span>
                 </div>
             </a>
-            <nav>
-                <ul class="nav-menu">
+            <nav aria-label="Navegación principal">
+                <ul class="nav-menu" id="primary-menu">
                     <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
-                    <li class="nav-item"><a href="carta.html" class="nav-link active">La Carta</a></li>
+                    <li class="nav-item"><a href="carta.html" class="nav-link active" aria-current="page">La Carta</a></li>
                     <li class="nav-item"><a href="nosotros.html" class="nav-link">Nosotros</a></li>
                     <li class="nav-item"><a href="reservas.html" class="nav-link btn-nav">Reservar Mesa</a></li>
                 </ul>
             </nav>
-            <button class="hamburger">
+            <button class="hamburger" type="button" aria-label="Abrir menú" aria-controls="primary-menu" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
         </div>
     </header>
+
+    <main id="main-content" tabindex="-1">
 
     <!-- Mini Hero -->
     <section class="menu-hero">
@@ -371,12 +380,12 @@
     <section class="pdf-download-banner">
         <div class="container">
             <div class="pdf-buttons">
-                <a href="assets/pdf/CARTA BAR ERMITA.pdf" target="_blank" class="btn-pdf">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><polyline points="9 15 12 18 15 15"></polyline></svg>
+                <a href="assets/pdf/CARTA BAR ERMITA.pdf" target="_blank" rel="noopener noreferrer" class="btn-pdf">
+                    <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><polyline points="9 15 12 18 15 15"></polyline></svg>
                     Descargar Carta Bar (PDF)
                 </a>
-                <a href="assets/pdf/Vinos y postres carta.pdf" target="_blank" class="btn-pdf">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><polyline points="9 15 12 18 15 15"></polyline></svg>
+                <a href="assets/pdf/Vinos y postres carta.pdf" target="_blank" rel="noopener noreferrer" class="btn-pdf">
+                    <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><polyline points="9 15 12 18 15 15"></polyline></svg>
                     Descargar Carta Vinos y Postres (PDF)
                 </a>
             </div>
@@ -389,25 +398,31 @@
             <!-- Search & Category Filters -->
             <div class="menu-controls">
                 <div class="search-box">
-                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                    <input type="text" id="menu-search" class="search-input" placeholder="Buscar plato, bocadillo, ingrediente o vino...">
-                    <button id="clear-search" class="clear-search">&times;</button>
+                    <svg aria-hidden="true" focusable="false" class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <label for="menu-search" class="sr-only">Buscar en la categoría seleccionada</label>
+                    <input type="search" id="menu-search" class="search-input" placeholder="Buscar plato, bocadillo, ingrediente o vino...">
+                    <button id="clear-search" class="clear-search" type="button" aria-label="Borrar búsqueda">&times;</button>
                 </div>
 
-                <div class="category-tabs">
-                    <button class="tab-btn active" data-category="tapas">Tapas</button>
-                    <button class="tab-btn" data-category="bocadillos">Bocadillos</button>
-                    <button class="tab-btn" data-category="cafeteria">Cafetería & Postres</button>
-                    <button class="tab-btn" data-category="vinos">Carta de Vinos</button>
+                <div class="category-tabs" role="group" aria-label="Categorías de la carta">
+                    <button class="tab-btn active" data-category="tapas" aria-pressed="true" type="button">Tapas</button>
+                    <button class="tab-btn" data-category="bocadillos" aria-pressed="false" type="button">Bocadillos</button>
+                    <button class="tab-btn" data-category="cafeteria" aria-pressed="false" type="button">Cafetería &amp; Postres</button>
+                    <button class="tab-btn" data-category="vinos" aria-pressed="false" type="button">Carta de Vinos</button>
                 </div>
             </div>
 
             <!-- Dynamic Menu Grid Output -->
+            <h2 class="sr-only">Platos de la carta</h2>
+            <p id="menu-results" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+            <noscript><p>Para buscar y filtrar platos, activa JavaScript. También puedes consultar nuestra carta en los PDF anteriores.</p></noscript>
             <div id="menu-grid">
                 <!-- Javascript will dynamically render items from menu.js here -->
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -417,8 +432,8 @@
                     <span class="footer-logo-text">L'Ermita Sumaq</span>
                     <p class="footer-logo-desc">Bar familiar y cafetería acogedora en Ibi. Una fusión entre la esencia tradicional española y la pasión por la calidad y el servicio.</p>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/ermitasumaq_ibi/" target="_blank" class="social-icon" aria-label="Instagram">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        <a href="https://www.instagram.com/ermitasumaq_ibi/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                            <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         </a>
                     </div>
                 </div>
@@ -435,7 +450,7 @@
                     <h3>Contacto</h3>
                     <div class="footer-contact">
                         <p><strong>Ubicación:</strong> Plaza La Foia 3, Ibi</p>
-                        <p><strong>Teléfono:</strong> <a href="tel:+34643260967">643 26 09 67</a></p>
+                        <p><strong>Teléfono:</strong> <a href="tel:+34643260967">643&nbsp;26&nbsp;09&nbsp;67</a></p>
                         <p><strong>Email:</strong> <a href="mailto:ermitasumaqibi@gmail.com">ermitasumaqibi@gmail.com</a></p>
                     </div>
                 </div>
@@ -452,8 +467,8 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 L'Ermita Sumaq. Todos los derechos reservados.</p>
                 <div class="footer-bottom-links">
-                    <a href="assets/pdf/CARTA BAR ERMITA.pdf" target="_blank">PDF Carta Bar</a>
-                    <a href="assets/pdf/Vinos y postres carta.pdf" target="_blank">PDF Vinos y Postres</a>
+                    <a href="assets/pdf/CARTA BAR ERMITA.pdf" target="_blank" rel="noopener noreferrer">PDF Carta Bar</a>
+                    <a href="assets/pdf/Vinos y postres carta.pdf" target="_blank" rel="noopener noreferrer">PDF Vinos y Postres</a>
                 </div>
             </div>
         </div>
@@ -461,7 +476,7 @@
 
     <!-- Floating Action Button for Reservations -->
     <a href="reservas.html" class="floating-booking-btn" aria-label="Reservar Mesa">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
         <span class="btn-text">Reservar Mesa</span>
     </a>
 

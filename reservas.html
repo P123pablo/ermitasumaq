@@ -6,9 +6,9 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="L'Ermita Sumaq">
     <meta name="theme-color" content="#5C3D2E">
-    <meta name="description" content="Reserva tu mesa en L'Ermita Sumaq en Ibi de forma directa. Contacta al instante por WhatsApp al 643 26 09 67 o llámanos para confirmar tu mesa en el salón o terraza.">
+    <meta name="description" content="Reserva tu mesa en L'Ermita Sumaq en Ibi de forma directa. Contacta al instante por WhatsApp al 643&nbsp;26&nbsp;09&nbsp;67 o llámanos para confirmar tu mesa en el salón o terraza.">
     <meta name="keywords" content="reservar mesa Ibi, reservas L'Ermita Sumaq, llamar restaurante Ibi, whatsapp reservas bar Ibi">
-    <link rel="canonical" href="https://ermitasumaq.com/reservas.html">
+    <link rel="canonical" href="https://ermitasumaq.com/reservas">
 
     <!-- Geo / Local SEO -->
     <meta name="geo.region" content="ES-A">
@@ -22,7 +22,7 @@
     <meta property="og:site_name" content="L'Ermita Sumaq">
     <meta property="og:title" content="Reservar Mesa | L'Ermita Sumaq - Contacto Directo WhatsApp y Teléfono">
     <meta property="og:description" content="Reserva tu mesa en L'Ermita Sumaq al instante vía WhatsApp o llamada telefónica directa.">
-    <meta property="og:url" content="https://ermitasumaq.com/reservas.html">
+    <meta property="og:url" content="https://ermitasumaq.com/reservas">
     <meta property="og:image" content="https://ermitasumaq.com/assets/generated/hero_bg.png">
     <meta property="og:image:alt" content="Ambiente L'Ermita Sumaq">
 
@@ -33,16 +33,19 @@
     <meta name="twitter:image" content="https://ermitasumaq.com/assets/generated/hero_bg.png">
 
     <!-- Favicons & Manifest -->
-    <link rel="icon" type="image/png" href="assets/logos/logo_principal.png">
-    <link rel="apple-touch-icon" href="assets/logos/logo_principal.png">
+    <link rel="icon" type="image/png" href="assets/logos/favicon-32.png">
+    <link rel="apple-touch-icon" href="assets/logos/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
 
+    <link rel="preload" as="image" href="assets/generated/hero_bg.webp" media="(min-width: 769px)" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/generated/hero_bg-1440.webp" media="(max-width: 768px)" fetchpriority="high">
     <title>Reservar Mesa | L'Ermita Sumaq - Contacto Directo WhatsApp y Teléfono</title>
+    <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/styles.css">
     <style>
         /* Specific Styles for Booking Page */
         .booking-hero {
-            background: linear-gradient(rgba(45, 36, 32, 0.75), rgba(45, 36, 32, 0.9)), url('assets/generated/hero_bg.png') no-repeat center center/cover;
+            background: linear-gradient(rgba(45, 36, 32, 0.75), rgba(45, 36, 32, 0.9)), url('assets/generated/hero_bg.webp') no-repeat center center/cover;
             padding: 120px 0 60px 0;
             color: var(--white);
             text-align: center;
@@ -117,7 +120,6 @@
             cursor: pointer;
             transition: var(--transition);
             border: none;
-            outline: none;
             box-shadow: var(--shadow-sm);
         }
 
@@ -127,7 +129,7 @@
 
         .booking-btn-whatsapp {
             background-color: #25D366;
-            color: var(--white);
+            color: #15351F;
         }
 
         .booking-btn-whatsapp:hover {
@@ -219,36 +221,42 @@
                 padding: 24px;
             }
         }
+        @media (max-width: 768px) {
+            .booking-hero { background-image: linear-gradient(rgba(45, 36, 32, .75), rgba(45, 36, 32, .9)), url('assets/generated/hero_bg-1440.webp'); }
+        }
     </style>
 
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
 
     <!-- Header / Navigation -->
     <header>
         <div class="container">
             <a href="index.html" class="logo-container">
-                <img src="assets/logos/logo_principal.png" alt="L'Ermita Sumaq Logo" class="logo-img">
+                <img src="assets/logos/logo-192.webp" alt="L'Ermita Sumaq Logo" class="logo-img" width="192" height="192" decoding="async">
                 <div class="logo-text">
                     L'Ermita Sumaq
                     <span class="logo-subtext">BAR FAMILIAR</span>
                 </div>
             </a>
-            <nav>
-                <ul class="nav-menu">
+            <nav aria-label="Navegación principal">
+                <ul class="nav-menu" id="primary-menu">
                     <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
                     <li class="nav-item"><a href="carta.html" class="nav-link">La Carta</a></li>
                     <li class="nav-item"><a href="nosotros.html" class="nav-link">Nosotros</a></li>
-                    <li class="nav-item"><a href="reservas.html" class="nav-link btn-nav active">Reservar Mesa</a></li>
+                    <li class="nav-item"><a href="reservas.html" class="nav-link btn-nav active" aria-current="page">Reservar Mesa</a></li>
                 </ul>
             </nav>
-            <button class="hamburger">
+            <button class="hamburger" type="button" aria-label="Abrir menú" aria-controls="primary-menu" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
         </div>
     </header>
+
+    <main id="main-content" tabindex="-1">
 
     <!-- Mini Hero -->
     <section class="booking-hero">
@@ -266,22 +274,22 @@
                 <div class="booking-card">
                     <h2>Contacto Directo para Reservas</h2>
                     <p class="booking-card-desc">Para asegurar una mesa y ofrecerte la mejor atención, gestionamos las reservas de forma personalizada al momento. Pulsa en cualquiera de las siguientes opciones:</p>
-                    
+
                     <div class="booking-buttons-container">
                         <!-- WhatsApp Link -->
-                        <a href="https://wa.me/34643260967?text=Hola!%20Me%20gustar%C3%ADa%20reservar%20una%20mesa%20en%20L'Ermita%20Sumaq." target="_blank" class="booking-btn booking-btn-whatsapp">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="btn-icon"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.66.986 3.298 1.487 4.908 1.488 5.247 0 9.516-4.225 9.519-9.42 0-2.516-1-4.88-2.817-6.657-1.817-1.777-4.234-2.756-6.809-2.756-5.253 0-9.52 4.227-9.522 9.42-.001 1.748.497 3.42 1.487 4.909l-.988 3.615 3.732-.974zm11.238-6.16c-.27-.135-1.597-.788-1.846-.878-.248-.09-.43-.135-.61.135-.18.27-.697.878-.853 1.058-.157.18-.315.202-.586.067-2.71-1.355-4.46-2.553-6.242-5.61-.24-.41.24-.38.687-1.272.074-.15.037-.28-.018-.393-.056-.112-.43-1.03-.59-1.414-.156-.373-.31-.322-.43-.328-.11-.005-.236-.006-.363-.006s-.332.047-.506.236c-.174.188-.665.648-.665 1.582 0 .934.68 1.838.775 1.964.095.127 1.34 2.046 3.247 2.87.454.197.808.314 1.085.4.457.145.872.124 1.2.075.366-.054 1.127-.46 1.285-.905.158-.445.158-.828.112-.905-.045-.077-.168-.122-.438-.257z"/></svg>
+                        <a href="https://wa.me/34643260967?text=Hola!%20Me%20gustar%C3%ADa%20reservar%20una%20mesa%20en%20L'Ermita%20Sumaq." target="_blank" rel="noopener noreferrer" class="booking-btn booking-btn-whatsapp">
+                            <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="btn-icon"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.66.986 3.298 1.487 4.908 1.488 5.247 0 9.516-4.225 9.519-9.42 0-2.516-1-4.88-2.817-6.657-1.817-1.777-4.234-2.756-6.809-2.756-5.253 0-9.52 4.227-9.522 9.42-.001 1.748.497 3.42 1.487 4.909l-.988 3.615 3.732-.974zm11.238-6.16c-.27-.135-1.597-.788-1.846-.878-.248-.09-.43-.135-.61.135-.18.27-.697.878-.853 1.058-.157.18-.315.202-.586.067-2.71-1.355-4.46-2.553-6.242-5.61-.24-.41.24-.38.687-1.272.074-.15.037-.28-.018-.393-.056-.112-.43-1.03-.59-1.414-.156-.373-.31-.322-.43-.328-.11-.005-.236-.006-.363-.006s-.332.047-.506.236c-.174.188-.665.648-.665 1.582 0 .934.68 1.838.775 1.964.095.127 1.34 2.046 3.247 2.87.454.197.808.314 1.085.4.457.145.872.124 1.2.075.366-.054 1.127-.46 1.285-.905.158-.445.158-.828.112-.905-.045-.077-.168-.122-.438-.257z"/></svg>
                             Reservar por WhatsApp
                         </a>
                         <!-- Mobile Call -->
                         <a href="tel:+34643260967" class="booking-btn booking-btn-call">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                            Llamar Móvil: 643 26 09 67
+                            <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            Llamar Móvil: 643&nbsp;26&nbsp;09&nbsp;67
                         </a>
                         <!-- Landline Call -->
                         <a href="tel:+34966330052" class="booking-btn booking-btn-call-landline">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                            Llamar Fijo: 966 33 00 52
+                            <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            Llamar Fijo: 966&nbsp;33&nbsp;00&nbsp;52
                         </a>
                     </div>
                 </div>
@@ -291,7 +299,7 @@
                     <!-- Info Box 1: Kitchen Hours -->
                     <div class="info-box">
                         <h3>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                             Horario de Cocina
                         </h3>
                         <p><strong>Martes a Jueves:</strong><br>Comidas: 12:00h - 16:00h<br>Cenas: 19:30h - 23:00h</p>
@@ -303,7 +311,7 @@
                     <!-- Info Box 2: Terms and Groups -->
                     <div class="info-box phone-call-box">
                         <h3>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                             Grupos y Eventos
                         </h3>
                         <p>Para reservas de grupos de más de 12 comensales, menús concertados o eventos privados en nuestro salón o terraza, aconsejamos contactar con un mínimo de <strong>24 horas de antelación</strong>.</p>
@@ -313,6 +321,8 @@
         </div>
     </section>
 
+    </main>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -321,8 +331,8 @@
                     <span class="footer-logo-text">L'Ermita Sumaq</span>
                     <p class="footer-logo-desc">Bar familiar y cafetería acogedora en Ibi. Una fusión entre la esencia tradicional española y la pasión por la calidad y el servicio.</p>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/ermitasumaq_ibi/" target="_blank" class="social-icon" aria-label="Instagram">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        <a href="https://www.instagram.com/ermitasumaq_ibi/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                            <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         </a>
                     </div>
                 </div>
@@ -339,7 +349,7 @@
                     <h3>Contacto</h3>
                     <div class="footer-contact">
                         <p><strong>Ubicación:</strong> Plaza La Foia 3, Ibi</p>
-                        <p><strong>Teléfono:</strong> <a href="tel:+34643260967">643 26 09 67</a></p>
+                        <p><strong>Teléfono:</strong> <a href="tel:+34643260967">643&nbsp;26&nbsp;09&nbsp;67</a></p>
                         <p><strong>Email:</strong> <a href="mailto:ermitasumaqibi@gmail.com">ermitasumaqibi@gmail.com</a></p>
                     </div>
                 </div>
@@ -356,8 +366,8 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 L'Ermita Sumaq. Todos los derechos reservados.</p>
                 <div class="footer-bottom-links">
-                    <a href="assets/pdf/CARTA BAR ERMITA.pdf" target="_blank">PDF Carta Bar</a>
-                    <a href="assets/pdf/Vinos y postres carta.pdf" target="_blank">PDF Vinos y Postres</a>
+                    <a href="assets/pdf/CARTA BAR ERMITA.pdf" target="_blank" rel="noopener noreferrer">PDF Carta Bar</a>
+                    <a href="assets/pdf/Vinos y postres carta.pdf" target="_blank" rel="noopener noreferrer">PDF Vinos y Postres</a>
                 </div>
             </div>
         </div>

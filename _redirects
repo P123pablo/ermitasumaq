@@ -1,0 +1,6 @@
+# Historical URLs. Pages also normalizes HTML to extensionless routes.
+/index.html / 301
+/carta.html /carta 301
+/nosotros.html /nosotros 301
+/reservas.html /reservas 301
+# www and HTTPS redirects must be set in the Cloudflare zone, not here.

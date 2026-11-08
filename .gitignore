@@ -1,0 +1,42 @@
+# Generated deployment output
+/dist/
+
+# Local audit evidence: captured URLs, machine paths and third-party request data
+/audit/
+/AUDIT_REPORT.md
+/PUBLICATION_REVIEW.md
+
+# Machine-specific agent, cloud and editor state
+/.aws/
+/.codex/
+/.agents/
+/.idea/
+/.vscode/
+.DS_Store
+Thumbs.db
+
+# Credentials and local environment (never put secrets in example files)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Dependency caches and temporary files
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.cache/
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+*.swp
+*~
+
+# Unreferenced legacy image: retained locally, unnecessary for the public project
+/assets/generated/sports_match.png

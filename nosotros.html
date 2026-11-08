@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#5C3D2E">
     <meta name="description" content="Conoce la historia de L'Ermita Sumaq en Ibi: la fusión gastronómica tradicional y la esencia del concepto Sumaq. Galería completa del salón comedor, barra y terraza exterior.">
     <meta name="keywords" content="historia L'Ermita Sumaq, sobre nosotros, fotos bar Ibi, salón restaurante Ibi, terraza Plaza La Foia Ibi">
-    <link rel="canonical" href="https://ermitasumaq.com/nosotros.html">
+    <link rel="canonical" href="https://ermitasumaq.com/nosotros">
 
     <!-- Geo / Local SEO -->
     <meta name="geo.region" content="ES-A">
@@ -18,11 +18,11 @@
 
     <!-- Open Graph -->
     <meta property="og:locale" content="es_ES">
-    <meta property="og:type" content="article">
+    <meta property="og:type" content="website">
     <meta property="og:site_name" content="L'Ermita Sumaq">
     <meta property="og:title" content="Nosotros | L'Ermita Sumaq - Nuestra Historia y Galería de Fotos">
     <meta property="og:description" content="Conoce la fusión entre el ambiente familiar tradicional y la excelencia culinaria en Ibi. Explora nuestra galería de fotos.">
-    <meta property="og:url" content="https://ermitasumaq.com/nosotros.html">
+    <meta property="og:url" content="https://ermitasumaq.com/nosotros">
     <meta property="og:image" content="https://ermitasumaq.com/assets/photos/local/salon.png">
     <meta property="og:image:alt" content="Salón Comedor L'Ermita Sumaq">
 
@@ -33,16 +33,19 @@
     <meta name="twitter:image" content="https://ermitasumaq.com/assets/photos/local/salon.png">
 
     <!-- Favicons & Manifest -->
-    <link rel="icon" type="image/png" href="assets/logos/logo_principal.png">
-    <link rel="apple-touch-icon" href="assets/logos/logo_principal.png">
+    <link rel="icon" type="image/png" href="assets/logos/favicon-32.png">
+    <link rel="apple-touch-icon" href="assets/logos/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
 
+    <link rel="preload" as="image" href="assets/photos/local/salon.webp" media="(min-width: 769px)" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/photos/local/salon-960.webp" media="(max-width: 768px)" fetchpriority="high">
     <title>Nosotros | L'Ermita Sumaq - Nuestra Historia y Galería de Fotos</title>
+    <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/styles.css">
     <style>
         /* Specific Styles for About Us and Gallery Page */
         .about-hero {
-            background: linear-gradient(rgba(45, 36, 32, 0.7), rgba(45, 36, 32, 0.85)), url('assets/photos/local/salon.png') no-repeat center center/cover;
+            background: linear-gradient(rgba(45, 36, 32, 0.7), rgba(45, 36, 32, 0.85)), url('assets/photos/local/salon.webp') no-repeat center center/cover;
             padding: 120px 0 60px 0;
             color: var(--white);
             text-align: center;
@@ -310,36 +313,42 @@
                 height: 240px;
             }
         }
+        @media (max-width: 768px) {
+            .about-hero { background-image: linear-gradient(rgba(45, 36, 32, .7), rgba(45, 36, 32, .85)), url('assets/photos/local/salon-960.webp'); }
+        }
     </style>
 
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
 
     <!-- Header / Navigation -->
     <header>
         <div class="container">
             <a href="index.html" class="logo-container">
-                <img src="assets/logos/logo_principal.png" alt="L'Ermita Sumaq Logo" class="logo-img">
+                <img src="assets/logos/logo-192.webp" alt="L'Ermita Sumaq Logo" class="logo-img" width="192" height="192" decoding="async">
                 <div class="logo-text">
                     L'Ermita Sumaq
                     <span class="logo-subtext">BAR FAMILIAR</span>
                 </div>
             </a>
-            <nav>
-                <ul class="nav-menu">
+            <nav aria-label="Navegación principal">
+                <ul class="nav-menu" id="primary-menu">
                     <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
                     <li class="nav-item"><a href="carta.html" class="nav-link">La Carta</a></li>
-                    <li class="nav-item"><a href="nosotros.html" class="nav-link active">Nosotros</a></li>
+                    <li class="nav-item"><a href="nosotros.html" class="nav-link active" aria-current="page">Nosotros</a></li>
                     <li class="nav-item"><a href="reservas.html" class="nav-link btn-nav">Reservar Mesa</a></li>
                 </ul>
             </nav>
-            <button class="hamburger">
+            <button class="hamburger" type="button" aria-label="Abrir menú" aria-controls="primary-menu" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
         </div>
     </header>
+
+    <main id="main-content" tabindex="-1">
 
     <!-- Hero -->
     <section class="about-hero">
@@ -359,7 +368,7 @@
                     <p>Nuestra propuesta gastronómica gira en torno a materias primas seleccionadas con mimo. Elaboramos las tapas clásicas de toda la vida y bocadillos de receta tradicional enriqueciéndolos con el espíritu <strong>Sumaq</strong>, que en quechua significa <em>delicioso, excelente y hermoso</em>. Esto representa la dedicación y el esmero que ponemos en cada detalle de nuestro servicio.</p>
                 </div>
                 <div class="story-image-collage">
-                    <img src="assets/photos/local/salon.png" alt="Salón de L'Ermita Sumaq">
+                    <img src="assets/photos/local/salon.webp" alt="Salón de L'Ermita Sumaq" width="1536" height="1024" decoding="async" loading="eager" fetchpriority="high" srcset="assets/photos/local/salon-480.webp 480w, assets/photos/local/salon-960.webp 960w, assets/photos/local/salon-1440.webp 1440w, assets/photos/local/salon.webp 1536w" sizes="(max-width: 992px) calc(100vw - 48px), 570px">
                 </div>
             </div>
         </div>
@@ -374,123 +383,125 @@
             </div>
 
             <!-- Gallery Filter Buttons -->
-            <div class="gallery-filters">
-                <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="local">El Local</button>
-                <button class="filter-btn" data-filter="comida">Nuestra Comida</button>
+            <div class="gallery-filters" role="group" aria-label="Filtrar fotografías">
+                <button class="filter-btn active" data-filter="all" aria-pressed="true" type="button">Todos</button>
+                <button class="filter-btn" data-filter="local" aria-pressed="false" type="button">El Local</button>
+                <button class="filter-btn" data-filter="comida" aria-pressed="false" type="button">Nuestra Comida</button>
             </div>
 
             <div class="gallery-grid">
                 <!-- Item 1: Salon Principal -->
-                <div class="gallery-item" data-category="local" onclick="openLightbox('assets/photos/local/salon.png', 'Salón Comedor Principal - Un ambiente cálido, tradicional y familiar.')">
-                    <img src="assets/photos/local/salon.png" alt="Salón comedor principal L'Ermita Sumaq">
-                    <div class="gallery-overlay">
+                <button type="button" class="gallery-item" data-category="local" data-image="assets/photos/local/salon.webp" data-caption="Salón Comedor Principal - Un ambiente cálido, tradicional y familiar." aria-label="Ampliar: Salón Comedor Principal - Un ambiente cálido, tradicional y familiar.">
+                    <img src="assets/photos/local/salon.webp" alt="Salón comedor principal L'Ermita Sumaq" width="1536" height="1024" decoding="async" loading="lazy" srcset="assets/photos/local/salon-480.webp 480w, assets/photos/local/salon-960.webp 960w, assets/photos/local/salon-1440.webp 1440w, assets/photos/local/salon.webp 1536w" sizes="(max-width: 576px) calc(100vw - 48px), (max-width: 992px) calc((100vw - 72px) / 2), 380px">
+                    <span class="gallery-overlay">
                         <span class="gallery-category">El Local</span>
-                        <h4 class="gallery-title">Salón Comedor</h4>
-                    </div>
-                </div>
+                        <span class="gallery-title">Salón Comedor</span>
+                    </span>
+                </button>
 
                 <!-- Item 2: Salon Secundario -->
-                <div class="gallery-item" data-category="local" onclick="openLightbox('assets/photos/local/salon2.png', 'Salón Comedor Interior - Espacio cómodo y acogedor para grupos.')">
-                    <img src="assets/photos/local/salon2.png" alt="Salón interior mesas comedor">
-                    <div class="gallery-overlay">
+                <button type="button" class="gallery-item" data-category="local" data-image="assets/photos/local/salon2.webp" data-caption="Salón Comedor Interior - Espacio cómodo y acogedor para grupos." aria-label="Ampliar: Salón Comedor Interior - Espacio cómodo y acogedor para grupos.">
+                    <img src="assets/photos/local/salon2.webp" alt="Salón interior mesas comedor" width="1448" height="1086" decoding="async" loading="lazy" srcset="assets/photos/local/salon2-480.webp 480w, assets/photos/local/salon2-960.webp 960w, assets/photos/local/salon2-1440.webp 1440w, assets/photos/local/salon2.webp 1448w" sizes="(max-width: 576px) calc(100vw - 48px), (max-width: 992px) calc((100vw - 72px) / 2), 380px">
+                    <span class="gallery-overlay">
                         <span class="gallery-category">El Local</span>
-                        <h4 class="gallery-title">Comedor Interior</h4>
-                    </div>
-                </div>
+                        <span class="gallery-title">Comedor Interior</span>
+                    </span>
+                </button>
 
                 <!-- Item 3: La Barra -->
-                <div class="gallery-item" data-category="local" onclick="openLightbox('assets/photos/local/barra.png', 'Nuestra Barra de Servicio - Cafés, bebidas y atención profesional al instante.')">
-                    <img src="assets/photos/local/barra.png" alt="Barra de servicio cafetería L'Ermita Sumaq">
-                    <div class="gallery-overlay">
+                <button type="button" class="gallery-item" data-category="local" data-image="assets/photos/local/barra.webp" data-caption="Nuestra Barra de Servicio - Cafés, bebidas y atención profesional al instante." aria-label="Ampliar: Nuestra Barra de Servicio - Cafés, bebidas y atención profesional al instante.">
+                    <img src="assets/photos/local/barra.webp" alt="Barra de servicio cafetería L'Ermita Sumaq" width="2390" height="1792" decoding="async" loading="lazy" srcset="assets/photos/local/barra-480.webp 480w, assets/photos/local/barra-960.webp 960w, assets/photos/local/barra-1440.webp 1440w, assets/photos/local/barra.webp 2390w" sizes="(max-width: 576px) calc(100vw - 48px), (max-width: 992px) calc((100vw - 72px) / 2), 380px">
+                    <span class="gallery-overlay">
                         <span class="gallery-category">El Local</span>
-                        <h4 class="gallery-title">Nuestra Barra</h4>
-                    </div>
-                </div>
+                        <span class="gallery-title">Nuestra Barra</span>
+                    </span>
+                </button>
 
                 <!-- Item 4: Paso a la Terraza -->
-                <div class="gallery-item" data-category="local" onclick="openLightbox('assets/photos/local/puerta_salon_terraza.png', 'Paso del salón interior directo hacia nuestra gran terraza exterior.')">
-                    <img src="assets/photos/local/puerta_salon_terraza.png" alt="Puerta de acceso a la terraza exterior">
-                    <div class="gallery-overlay">
+                <button type="button" class="gallery-item" data-category="local" data-image="assets/photos/local/puerta_salon_terraza.webp" data-caption="Paso del salón interior directo hacia nuestra gran terraza exterior." aria-label="Ampliar: Paso del salón interior directo hacia nuestra gran terraza exterior.">
+                    <img src="assets/photos/local/puerta_salon_terraza.webp" alt="Puerta de acceso a la terraza exterior" width="1448" height="1086" decoding="async" loading="lazy" srcset="assets/photos/local/puerta_salon_terraza-480.webp 480w, assets/photos/local/puerta_salon_terraza-960.webp 960w, assets/photos/local/puerta_salon_terraza-1440.webp 1440w, assets/photos/local/puerta_salon_terraza.webp 1448w" sizes="(max-width: 576px) calc(100vw - 48px), (max-width: 992px) calc((100vw - 72px) / 2), 380px">
+                    <span class="gallery-overlay">
                         <span class="gallery-category">El Local</span>
-                        <h4 class="gallery-title">Paso a la Terraza</h4>
-                    </div>
-                </div>
+                        <span class="gallery-title">Paso a la Terraza</span>
+                    </span>
+                </button>
 
                 <!-- Item 5: Vistas de la Terraza -->
-                <div class="gallery-item" data-category="local" onclick="openLightbox('assets/photos/local/terraza1.png', 'Vistas generales de nuestra terraza exterior al aire libre.')">
-                    <img src="assets/photos/local/terraza1.png" alt="Terraza exterior del bar en Plaza La Foia">
-                    <div class="gallery-overlay">
+                <button type="button" class="gallery-item" data-category="local" data-image="assets/photos/local/terraza1.webp" data-caption="Vistas generales de nuestra terraza exterior al aire libre." aria-label="Ampliar: Vistas generales de nuestra terraza exterior al aire libre.">
+                    <img src="assets/photos/local/terraza1.webp" alt="Terraza exterior del bar en Plaza La Foia" width="1448" height="1086" decoding="async" loading="lazy" srcset="assets/photos/local/terraza1-480.webp 480w, assets/photos/local/terraza1-960.webp 960w, assets/photos/local/terraza1-1440.webp 1440w, assets/photos/local/terraza1.webp 1448w" sizes="(max-width: 576px) calc(100vw - 48px), (max-width: 992px) calc((100vw - 72px) / 2), 380px">
+                    <span class="gallery-overlay">
                         <span class="gallery-category">El Local</span>
-                        <h4 class="gallery-title">Vistas Terraza</h4>
-                    </div>
-                </div>
+                        <span class="gallery-title">Vistas Terraza</span>
+                    </span>
+                </button>
 
                 <!-- Item 6: Terraza junto al Parque Infantil -->
-                <div class="gallery-item" data-category="local" onclick="openLightbox('assets/photos/local/terraza_parque_infantil.png', 'Terraza exterior con vistas directas al parque infantil contiguo, ideal para familias.')">
-                    <img src="assets/photos/local/terraza_parque_infantil.png" alt="Terraza exterior junto al parque infantil">
-                    <div class="gallery-overlay">
+                <button type="button" class="gallery-item" data-category="local" data-image="assets/photos/local/terraza_parque_infantil.webp" data-caption="Terraza exterior con vistas directas al parque infantil contiguo, ideal para familias." aria-label="Ampliar: Terraza exterior con vistas directas al parque infantil contiguo, ideal para familias.">
+                    <img src="assets/photos/local/terraza_parque_infantil.webp" alt="Terraza exterior junto al parque infantil" width="1448" height="1086" decoding="async" loading="lazy" srcset="assets/photos/local/terraza_parque_infantil-480.webp 480w, assets/photos/local/terraza_parque_infantil-960.webp 960w, assets/photos/local/terraza_parque_infantil-1440.webp 1440w, assets/photos/local/terraza_parque_infantil.webp 1448w" sizes="(max-width: 576px) calc(100vw - 48px), (max-width: 992px) calc((100vw - 72px) / 2), 380px">
+                    <span class="gallery-overlay">
                         <span class="gallery-category">El Local</span>
-                        <h4 class="gallery-title">Terraza Parque Infantil</h4>
-                    </div>
-                </div>
+                        <span class="gallery-title">Terraza Parque Infantil</span>
+                    </span>
+                </button>
 
                 <!-- Item 7: Carrillada -->
-                <div class="gallery-item" data-category="comida" onclick="openLightbox('assets/photos/platos/carrillada.png', 'Tapa de Carrillada ibérica - Tierna y guisada a fuego lento al vino tinto.')">
-                    <img src="assets/photos/platos/carrillada.png" alt="Carrillada ibérica L'Ermita Sumaq">
-                    <div class="gallery-overlay">
+                <button type="button" class="gallery-item" data-category="comida" data-image="assets/photos/platos/carrillada.webp" data-caption="Tapa de Carrillada ibérica - Tierna y guisada a fuego lento al vino tinto." aria-label="Ampliar: Tapa de Carrillada ibérica - Tierna y guisada a fuego lento al vino tinto.">
+                    <img src="assets/photos/platos/carrillada.webp" alt="Carrillada ibérica L'Ermita Sumaq" width="1024" height="1536" decoding="async" loading="lazy" srcset="assets/photos/platos/carrillada-480.webp 480w, assets/photos/platos/carrillada-960.webp 960w, assets/photos/platos/carrillada.webp 1024w" sizes="(max-width: 576px) calc(100vw - 48px), (max-width: 992px) calc((100vw - 72px) / 2), 380px">
+                    <span class="gallery-overlay">
                         <span class="gallery-category">Nuestra Comida</span>
-                        <h4 class="gallery-title">Carrillada Ibérica</h4>
-                    </div>
-                </div>
+                        <span class="gallery-title">Carrillada Ibérica</span>
+                    </span>
+                </button>
 
                 <!-- Item 8: Nachos -->
-                <div class="gallery-item" data-category="comida" onclick="openLightbox('assets/photos/platos/nachos.png', 'Ración de Nachos Sumaq - Con queso fundido y carne marinada.')">
-                    <img src="assets/photos/platos/nachos.png" alt="Nachos Sumaq L'Ermita Sumaq">
-                    <div class="gallery-overlay">
+                <button type="button" class="gallery-item" data-category="comida" data-image="assets/photos/platos/nachos.webp" data-caption="Ración de Nachos Sumaq - Con queso fundido y carne marinada." aria-label="Ampliar: Ración de Nachos Sumaq - Con queso fundido y carne marinada.">
+                    <img src="assets/photos/platos/nachos.webp" alt="Nachos Sumaq L'Ermita Sumaq" width="1024" height="1536" decoding="async" loading="lazy" srcset="assets/photos/platos/nachos-480.webp 480w, assets/photos/platos/nachos-960.webp 960w, assets/photos/platos/nachos.webp 1024w" sizes="(max-width: 576px) calc(100vw - 48px), (max-width: 992px) calc((100vw - 72px) / 2), 380px">
+                    <span class="gallery-overlay">
                         <span class="gallery-category">Nuestra Comida</span>
-                        <h4 class="gallery-title">Nachos Sumaq</h4>
-                    </div>
-                </div>
+                        <span class="gallery-title">Nachos Sumaq</span>
+                    </span>
+                </button>
 
                 <!-- Item 9: Bocadillo gourmet -->
-                <div class="gallery-item" data-category="comida" onclick="openLightbox('assets/generated/gourmet_sandwich.png', 'Bocadillos crujientes hechos con pan rústico caliente.')">
-                    <img src="assets/generated/gourmet_sandwich.png" alt="Bocadillos rústicos L'Ermita Sumaq">
-                    <div class="gallery-overlay">
+                <button type="button" class="gallery-item" data-category="comida" data-image="assets/generated/gourmet_sandwich.webp" data-caption="Bocadillos crujientes hechos con pan rústico caliente." aria-label="Ampliar: Bocadillos crujientes hechos con pan rústico caliente.">
+                    <img src="assets/generated/gourmet_sandwich.webp" alt="Bocadillos rústicos L'Ermita Sumaq" width="1448" height="1086" decoding="async" loading="lazy" srcset="assets/generated/gourmet_sandwich-480.webp 480w, assets/generated/gourmet_sandwich-960.webp 960w, assets/generated/gourmet_sandwich-1440.webp 1440w, assets/generated/gourmet_sandwich.webp 1448w" sizes="(max-width: 576px) calc(100vw - 48px), (max-width: 992px) calc((100vw - 72px) / 2), 380px">
+                    <span class="gallery-overlay">
                         <span class="gallery-category">Nuestra Comida</span>
-                        <h4 class="gallery-title">Bocadillos Rústicos</h4>
-                    </div>
-                </div>
+                        <span class="gallery-title">Bocadillos Rústicos</span>
+                    </span>
+                </button>
 
                 <!-- Item 10: Tapas spread -->
-                <div class="gallery-item" data-category="comida" onclick="openLightbox('assets/generated/tapas_spread.png', 'Nuestra selección de tapas españolas listas para compartir.')">
-                    <img src="assets/generated/tapas_spread.png" alt="Variedad de tapas L'Ermita Sumaq">
-                    <div class="gallery-overlay">
+                <button type="button" class="gallery-item" data-category="comida" data-image="assets/generated/tapas_spread.webp" data-caption="Nuestra selección de tapas españolas listas para compartir." aria-label="Ampliar: Nuestra selección de tapas españolas listas para compartir.">
+                    <img src="assets/generated/tapas_spread.webp" alt="Variedad de tapas L'Ermita Sumaq" width="1024" height="1024" decoding="async" loading="lazy" srcset="assets/generated/tapas_spread-480.webp 480w, assets/generated/tapas_spread-960.webp 960w, assets/generated/tapas_spread.webp 1024w" sizes="(max-width: 576px) calc(100vw - 48px), (max-width: 992px) calc((100vw - 72px) / 2), 380px">
+                    <span class="gallery-overlay">
                         <span class="gallery-category">Nuestra Comida</span>
-                        <h4 class="gallery-title">Tapas tradicionales</h4>
-                    </div>
-                </div>
+                        <span class="gallery-title">Tapas tradicionales</span>
+                    </span>
+                </button>
 
                 <!-- Item 11: Wine and counter -->
-                <div class="gallery-item" data-category="comida" onclick="openLightbox('assets/generated/wine_selection.png', 'Cuidada selección de tintos, blancos y cafés para acompañar.')">
-                    <img src="assets/generated/wine_selection.png" alt="Selección de vinos L'Ermita Sumaq">
-                    <div class="gallery-overlay">
+                <button type="button" class="gallery-item" data-category="comida" data-image="assets/generated/wine_selection.webp" data-caption="Cuidada selección de tintos, blancos y cafés para acompañar." aria-label="Ampliar: Cuidada selección de tintos, blancos y cafés para acompañar.">
+                    <img src="assets/generated/wine_selection.webp" alt="Selección de vinos L'Ermita Sumaq" width="1448" height="1086" decoding="async" loading="lazy" srcset="assets/generated/wine_selection-480.webp 480w, assets/generated/wine_selection-960.webp 960w, assets/generated/wine_selection-1440.webp 1440w, assets/generated/wine_selection.webp 1448w" sizes="(max-width: 576px) calc(100vw - 48px), (max-width: 992px) calc((100vw - 72px) / 2), 380px">
+                    <span class="gallery-overlay">
                         <span class="gallery-category">Nuestra Comida</span>
-                        <h4 class="gallery-title">Vinos Seleccionados</h4>
-                    </div>
-                </div>
+                        <span class="gallery-title">Vinos Seleccionados</span>
+                    </span>
+                </button>
             </div>
         </div>
     </section>
 
     <!-- Lightbox Modal -->
-    <div id="gallery-lightbox" class="lightbox">
+    <dialog id="gallery-lightbox" class="lightbox" aria-label="Fotografía ampliada" aria-describedby="lightbox-caption">
         <div class="lightbox-content">
-            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-            <img id="lightbox-image" class="lightbox-img" src="" alt="">
-            <p id="lightbox-caption" class="lightbox-caption">Pie de foto</p>
+            <button class="lightbox-close" type="button" aria-label="Cerrar fotografía">&times;</button>
+            <img id="lightbox-image" class="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">
+            <p id="lightbox-caption" class="lightbox-caption"></p>
         </div>
-    </div>
+    </dialog>
+
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -500,8 +511,8 @@
                     <span class="footer-logo-text">L'Ermita Sumaq</span>
                     <p class="footer-logo-desc">Bar familiar y cafetería acogedora en Ibi. Una fusión entre la esencia tradicional española y la pasión por la calidad y el servicio.</p>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/ermitasumaq_ibi/" target="_blank" class="social-icon" aria-label="Instagram">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        <a href="https://www.instagram.com/ermitasumaq_ibi/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                            <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         </a>
                     </div>
                 </div>
@@ -518,7 +529,7 @@
                     <h3>Contacto</h3>
                     <div class="footer-contact">
                         <p><strong>Ubicación:</strong> Plaza La Foia 3, Ibi</p>
-                        <p><strong>Teléfono:</strong> <a href="tel:+34643260967">643 26 09 67</a></p>
+                        <p><strong>Teléfono:</strong> <a href="tel:+34643260967">643&nbsp;26&nbsp;09&nbsp;67</a></p>
                         <p><strong>Email:</strong> <a href="mailto:ermitasumaqibi@gmail.com">ermitasumaqibi@gmail.com</a></p>
                     </div>
                 </div>
@@ -535,8 +546,8 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 L'Ermita Sumaq. Todos los derechos reservados.</p>
                 <div class="footer-bottom-links">
-                    <a href="assets/pdf/CARTA BAR ERMITA.pdf" target="_blank">PDF Carta Bar</a>
-                    <a href="assets/pdf/Vinos y postres carta.pdf" target="_blank">PDF Vinos y Postres</a>
+                    <a href="assets/pdf/CARTA BAR ERMITA.pdf" target="_blank" rel="noopener noreferrer">PDF Carta Bar</a>
+                    <a href="assets/pdf/Vinos y postres carta.pdf" target="_blank" rel="noopener noreferrer">PDF Vinos y Postres</a>
                 </div>
             </div>
         </div>
@@ -544,70 +555,11 @@
 
     <!-- Floating Action Button for Reservations -->
     <a href="reservas.html" class="floating-booking-btn" aria-label="Reservar Mesa">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
         <span class="btn-text">Reservar Mesa</span>
     </a>
 
     <script src="js/main.js"></script>
-    <script>
-        // Lightbox Interactivity
-        const lightbox = document.getElementById('gallery-lightbox');
-        const lightboxImg = document.getElementById('lightbox-image');
-        const lightboxCap = document.getElementById('lightbox-caption');
-
-        function openLightbox(imgSrc, captionText) {
-            if (!lightbox || !lightboxImg || !lightboxCap) return;
-            lightboxImg.src = imgSrc;
-            lightboxCap.textContent = captionText;
-            lightbox.classList.add('visible');
-        }
-
-        function closeLightbox() {
-            if (!lightbox) return;
-            lightbox.classList.remove('visible');
-        }
-
-        // Close on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeLightbox();
-        });
-
-        // Close on background click
-        if (lightbox) {
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) {
-                    closeLightbox();
-                }
-            });
-        }
-
-        // Gallery Filter Interactivity
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                button.classList.add('active');
-
-                const filterValue = button.getAttribute('data-filter');
-
-                galleryItems.forEach(item => {
-                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                        item.style.display = 'block';
-                        // Trigger soft fade-in animation
-                        item.style.opacity = '0';
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                        }, 50);
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="js/gallery.js"></script>
 </body>
 </html>
